@@ -11,6 +11,20 @@ BOT_NAME = 'online_community_crawl'
 
 SPIDER_MODULES = ['online_community_crawl.spiders']
 NEWSPIDER_MODULE = 'online_community_crawl.spiders'
+MONGO_DB = 'mongodb://localhost:27017'
+MONGO_CLIENT = 'online_community' # mongodb database 이름
+MONGO_COLLECTION = 'community' # mongodb collection 이름
+
+ITEM_PIPELINES = {'online_community_crawl.pipelines.OnlineCommunityCrawlerPipeline' : 800, }
+
+# Crawl responsibly by identifying yourself (and your website) on the user-agent
+#USER_AGENT = 'naver_news (+http://www.yourdomain.com)'
+
+# Obey robots.txt rules
+ROBOTSTXT_OBEY = False # robots.txt 무시
+
+# Configure maximum concurrent requests performed by Scrapy (default: 16)
+CONCURRENT_REQUESTS = 48
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
