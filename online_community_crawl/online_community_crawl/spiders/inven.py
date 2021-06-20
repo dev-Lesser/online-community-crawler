@@ -7,7 +7,7 @@ class InvenSpider(scrapy.Spider):
 
     def start_requests(self):
         # for page_num in range(100)
-        urls = ['https://www.inven.co.kr/search/webzine/article/이준석/{page_num}'.format(page_num=i) for i in range(1,2)] # 시간순 정렬 되어 있음
+        urls = ['https://www.inven.co.kr/search/webzine/article/이준석/{page_num}'.format(page_num=i) for i in range(1,100)] # 시간순 정렬 되어 있음
         for iurl in urls:
             yield scrapy.Request(
                 url=iurl, 
