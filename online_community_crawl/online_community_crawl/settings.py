@@ -18,14 +18,18 @@ MONGO_COLLECTION = 'community' # mongodb collection 이름
 ITEM_PIPELINES = {'online_community_crawl.pipelines.OnlineCommunityCrawlerPipeline' : 800, }
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'naver_news (+http://www.yourdomain.com)'
+#USER_AGENT = '(+http://www.yourdomain.com)'
+
+
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False # robots.txt 무시
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 16
-
+CONCURRENT_REQUESTS = 1
+AUTOTHROTTLE_ENABLED = True
+AUTOTHROTTLE_START_DELAY = 20
+AUTOTHROTTLE_MAX_DELAY = 60
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'online_community_crawl (+http://www.yourdomain.com)'
@@ -38,7 +42,7 @@ ROBOTSTXT_OBEY = False
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 1
+DOWNLOAD_DELAY = 10
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16

@@ -16,7 +16,7 @@ class FmkoreaSpider(scrapy.Spider):
         for iurl in urls:
             yield scrapy.Request(
                 url=iurl, 
-                callback=self.parse_url
+                callback=self.parse_url,
             )
     def parse_url(self, response):
 
@@ -30,7 +30,7 @@ class FmkoreaSpider(scrapy.Spider):
             yield scrapy.Request(
                 url='https://www.fmkorea.com/'+iurl, 
                 callback=self.parse,
-                meta= {'title':ititle,'url': iurl,'date': idate}
+                meta= {'title':ititle,'url': 'https://www.fmkorea.com/'+iurl,'date': idate}
             )
     def parse(self, response):
         post_items = OnlineCommunityCrawlItem()
